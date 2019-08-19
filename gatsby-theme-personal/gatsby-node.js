@@ -16,7 +16,7 @@ exports.sourceNodes = ({ actions }) => {
       name: String!
       description: String!
       type: String
-      release: Int!
+      release: Date! @dateformat
       url: String!
       status: String!
       slug: String!
@@ -51,7 +51,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   const result = await graphql(`
     query {
-      allProject {
+      allProject(sort: { fields: release, order: ASC }) {
         nodes {
           id
           slug
