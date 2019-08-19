@@ -40,3 +40,41 @@ exports.createResolvers = ({ createResolvers }) => {
     }
   })
 }
+
+exports.createPages = async ({ actions, graphql, reporter }) => {
+  const basePath = '/'
+
+  actions.createPage({
+    path: basePath,
+    component: require.resolve('./src/templates/projects.js')
+  })
+
+  const result = await graphql(`
+    query {
+      allProject {
+        nodes {
+          id
+          slug
+        }
+      }
+    }
+  `)
+
+  if (result.error) {
+    return reporter.panic('error loading projects', reporter.errors)
+  }
+
+  const projects = result.data.allProject.nodes
+
+  projects.forEach(project => {
+    const slug = project.slug
+
+    actions.createPage({
+      path: slug,
+      component: require.resolve('./src/templates/project.js'),
+      context: {
+        projectID: project.id
+      }
+    })
+  })
+}
