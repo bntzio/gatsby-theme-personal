@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "workspaces": [
+    "gatsby-theme-personal",
+    "site"
+  ],
+  "scripts": {
+    "commit": "git-cz"
+  },
+  "devDependencies": {
+    "commitizen": "^4.0.3",
+    "cz-clean": "^0.1.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-clean"
+    }
+  }
+}
