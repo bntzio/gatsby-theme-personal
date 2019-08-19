@@ -8,18 +8,23 @@
     "develop": "gatsby develop",
     "clean": "gatsby clean"
   },
-  "peerDependencies": {
-    "gatsby": "^2.13.67",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+  "dependencies": {
+    "@emotion/core": "^10.0.16",
+    "@emotion/styled": "^10.0.15",
+    "@mdx-js/react": "^1.3.1",
+    "gatsby-source-filesystem": "^2.1.9",
+    "gatsby-theme-ui": "^0.2.0",
+    "gatsby-transformer-yaml": "^2.2.4",
+    "theme-ui": "^0.2.35"
   },
   "devDependencies": {
     "gatsby": "^2.13.67",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
   },
-  "dependencies": {
-    "gatsby-source-filesystem": "^2.1.9",
-    "gatsby-transformer-yaml": "^2.2.4"
+  "peerDependencies": {
+    "gatsby": "^2.13.67",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   }
 }
