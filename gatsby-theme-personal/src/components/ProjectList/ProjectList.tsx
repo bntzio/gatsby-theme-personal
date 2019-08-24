@@ -2,7 +2,18 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { Styled } from 'theme-ui'
 
-const ProjectList = ({ projects }) => (
+interface Project {
+  id: string
+  slug: string
+  name: string
+  release: string
+}
+
+interface Props {
+  projects: Project[]
+}
+
+const ProjectList = ({ projects }: Props) => (
   <Styled.ul>
     {projects.map(project => (
       <Styled.li key={project.id}>

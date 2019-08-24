@@ -1,5 +1,7 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 module.exports = ({ contentPath = 'data', basePath = '/' }) => ({
   plugins: [
+    'gatsby-plugin-typescript',
     'gatsby-theme-ui',
     {
       resolve: 'gatsby-source-filesystem',

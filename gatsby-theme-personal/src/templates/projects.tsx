@@ -19,9 +19,7 @@ export default () => {
     }
   `)
 
-
   const projects = data.allProject.nodes
-  console.log(projects)
 
   return (
     <Layout>

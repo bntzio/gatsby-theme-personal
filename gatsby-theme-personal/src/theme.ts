@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/prefer-default-export
 export const theme = {
   space: [0, 4, 8, 16, 32],
   fonts: {
