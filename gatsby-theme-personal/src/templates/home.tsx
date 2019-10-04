@@ -1,29 +1,5 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
 
-import Layout from '../components/Layout'
-import ProjectList from '../components/ProjectList'
+import Layout from './../components/Layout/Layout.Home'
 
-export default () => {
-  const data = useStaticQuery(graphql`
-    query {
-      allProject(sort: { fields: release, order: ASC }) {
-        nodes {
-          id
-          name
-          release
-          url
-          slug
-        }
-      }
-    }
-  `)
-
-  const projects = data.allProject.nodes
-
-  return (
-    <Layout>
-      <ProjectList projects={projects} />
-    </Layout>
-  )
-}
+export default () => <Layout />
