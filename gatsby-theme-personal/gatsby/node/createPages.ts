@@ -12,7 +12,7 @@ exports.createPages = async ({ actions, graphql, reporter }: any, options: Optio
 
   actions.createPage({
     path: basePath,
-    component: require.resolve('./../../src/templates/projects.tsx')
+    component: require.resolve('./../../src/templates/home.tsx')
   })
 
   const result = await graphql(`

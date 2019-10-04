@@ -4,7 +4,7 @@ module.exports = {
       resolve: 'gatsby-theme-personal',
       options: {
         contentPath: 'projects',
-        basePath: '/projects'
+        basePath: '/'
       }
     }
   ]

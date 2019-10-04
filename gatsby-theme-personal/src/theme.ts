@@ -12,7 +12,7 @@ export const theme = {
   colors: {
     gray: ['#efefef', '#ddd', '#333', '#111'],
     background: '#fff',
-    primary: 'rebeccapurple'
+    primary: 'royalblue'
   },
   sizes: {
     default: '90vw',

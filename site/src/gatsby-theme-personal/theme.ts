@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/prefer-default-export
 export const theme = {
   space: [0, 4, 8, 16, 32],
   fonts: {
@@ -11,7 +12,7 @@ export const theme = {
   colors: {
     gray: ['#efefef', '#ddd', '#333', '#111'],
     background: '#fff',
-    primary: 'royalBlue'
+    primary: 'red'
   },
   sizes: {
     default: '90vw',
