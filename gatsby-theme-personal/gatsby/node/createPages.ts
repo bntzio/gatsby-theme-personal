@@ -17,7 +17,7 @@ exports.createPages = async ({ actions, graphql, reporter }: any, options: Optio
 
   const result = await graphql(`
     query {
-      allPost {
+      allPost(sort: { fields: published_at, order: DESC }) {
         nodes {
           id
           slug

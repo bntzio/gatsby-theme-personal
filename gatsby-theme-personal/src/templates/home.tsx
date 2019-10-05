@@ -9,11 +9,12 @@ import { LatestPosts } from './../components/Posts'
 export default () => {
   const data = useStaticQuery(graphql`
     query {
-      allPost {
+      allPost(sort: { fields: published_at, order: DESC }) {
         nodes {
           id
           title
           slug
+          published_at
         }
       }
     }

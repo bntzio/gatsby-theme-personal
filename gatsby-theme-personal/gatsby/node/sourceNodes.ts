@@ -4,6 +4,7 @@ exports.sourceNodes = ({ actions }: any) => {
       id: ID!
       title: String!
       slug: String!
+      published_at: Date! @dateformat
     }
   `)
 }
