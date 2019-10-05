@@ -12,7 +12,7 @@ module.exports = ({ contentPath = 'data', basePath = '/' }) => ({
     {
       resolve: `gatsby-transformer-yaml`,
       options: {
-        typeName: `Project`
+        typeName: `Post`
       }
     }
   ]

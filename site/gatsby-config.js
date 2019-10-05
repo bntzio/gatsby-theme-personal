@@ -3,7 +3,7 @@ module.exports = {
     {
       resolve: 'gatsby-theme-personal',
       options: {
-        contentPath: 'projects',
+        contentPath: 'posts',
         basePath: '/'
       }
     }
