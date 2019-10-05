@@ -2,14 +2,14 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 
-interface Props {
-  posts: Post[]
-}
-
 interface Post {
   id: string
   title: string
   slug: string
+}
+
+interface Props {
+  posts: Post[]
 }
 
 const Posts = ({ posts }: Props) => (

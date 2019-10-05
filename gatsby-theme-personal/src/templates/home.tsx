@@ -6,21 +6,26 @@ import About from './../components/About'
 import Navbar from './../components/Navbar'
 import { LatestPosts } from './../components/Posts'
 
+interface Post {
+  id: string
+  title: string
+  slug: string
+}
+
 export default () => {
   const data = useStaticQuery(graphql`
     query {
-      allPost(sort: { fields: published_at, order: DESC }) {
+      allPost(sort: { fields: published_at, order: DESC }, limit: 6) {
         nodes {
           id
           title
           slug
-          published_at
         }
       }
     }
   `)
 
-  const posts = data.allPost.nodes
+  const posts: Post[] = data.allPost.nodes
 
   return (
     <Layout>
