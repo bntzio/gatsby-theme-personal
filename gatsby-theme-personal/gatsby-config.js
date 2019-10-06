@@ -10,9 +10,10 @@ module.exports = ({ contentPath = 'data', basePath = '/' }) => ({
       }
     },
     {
-      resolve: `gatsby-transformer-yaml`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        typeName: `Post`
+        extensions: ['.mdx', '.md'],
+        defaultLayout: require.resolve('./src/components/Layout/Layout.Post.tsx')
       }
     }
   ]

@@ -1,12 +1,20 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 
-import Layout from './../components/Layout/Layout.Home'
+import Layout from './../components/Layout'
 import About from './../components/About'
 import Navbar from './../components/Navbar'
 import { LatestPosts } from './../components/Posts'
 
 interface Post {
+  id: string
+  frontmatter: {
+    title: string
+    slug: string
+  }
+}
+
+interface ParsedPost {
   id: string
   title: string
   slug: string
@@ -15,23 +23,35 @@ interface Post {
 export default () => {
   const data = useStaticQuery(graphql`
     query {
-      allPost(sort: { fields: published_at, order: DESC }, limit: 6) {
+      allMdx(sort: { fields: [frontmatter___published_at], order: DESC }, limit: 6) {
         nodes {
           id
-          title
-          slug
+          frontmatter {
+            title
+            slug
+          }
         }
       }
     }
   `)
 
-  const posts: Post[] = data.allPost.nodes
+  const posts: Post[] = data.allMdx.nodes
+
+  const parsed: ParsedPost[] = posts.map(post => {
+    const parsed = {
+      ...post,
+      title: post.frontmatter.title,
+      slug: post.frontmatter.slug
+    }
+    delete parsed.frontmatter
+    return parsed
+  })
 
   return (
-    <Layout>
+    <Layout.home>
       <About />
       <Navbar />
-      <LatestPosts posts={posts} />
-    </Layout>
+      <LatestPosts posts={parsed} />
+    </Layout.home>
   )
 }

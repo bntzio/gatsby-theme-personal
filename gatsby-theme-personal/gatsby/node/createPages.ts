@@ -4,7 +4,9 @@ interface Options {
 
 interface Post {
   id: string
-  slug: string
+  frontmatter: {
+    slug: string
+  }
 }
 
 exports.createPages = async ({ actions, graphql, reporter }: any, options: Options) => {
@@ -17,10 +19,12 @@ exports.createPages = async ({ actions, graphql, reporter }: any, options: Optio
 
   const result = await graphql(`
     query {
-      allPost(sort: { fields: published_at, order: DESC }) {
+      allMdx(sort: { fields: [frontmatter___published_at], order: DESC }) {
         nodes {
           id
-          slug
+          frontmatter {
+            slug
+          }
         }
       }
     }
@@ -30,10 +34,10 @@ exports.createPages = async ({ actions, graphql, reporter }: any, options: Optio
     return reporter.panic('error loading posts', reporter.errors)
   }
 
-  const posts = result.data.allPost.nodes
+  const posts = result.data.allMdx.nodes
 
   posts.forEach((post: Post) => {
-    const slug = post.slug
+    const { slug } = post.frontmatter
 
     actions.createPage({
       path: slug,

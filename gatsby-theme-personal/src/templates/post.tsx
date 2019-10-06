@@ -1,33 +1,42 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
+import Layout from './../components/Layout'
+
 interface Props {
   data: {
-    post: {
-      title: string
-      slug: string
-      published_at: string // eslint-disable-line camelcase
+    mdx: {
+      frontmatter: {
+        title: string
+        published_at: string // eslint-disable-line camelcase
+      }
     }
   }
 }
 
+export default ({
+  data: {
+    mdx: {
+      frontmatter: { title, published_at: publishedAt }
+    }
+  }
+}: Props) => (
+  <Layout.post>
+    <main>
+      <h1>{title}</h1>
+      <time>{publishedAt}</time>
+    </main>
+  </Layout.post>
+)
+
 export const query = graphql`
   query($postID: String!) {
-    post(id: { eq: $postID }) {
-      title
-      slug
-      published_at
+    mdx(id: { eq: $postID }) {
+      id
+      frontmatter {
+        title
+        published_at
+      }
     }
   }
 `
-
-export default ({
-  data: {
-    post: { title, published_at: publishedAt }
-  }
-}: Props) => (
-  <main>
-    <h1>{title}</h1>
-    <time>{publishedAt}</time>
-  </main>
-)
