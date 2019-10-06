@@ -13,7 +13,10 @@ export default ({ children }: any) => (
     </Helmet>
     <Layout>
       <Header />
-      <Main>{children}</Main>
+      <Main>
+        <Title>All Articles</Title>
+        {children}
+      </Main>
     </Layout>
   </Global>
 )
@@ -29,4 +32,10 @@ const Layout = styled.div`
 const Main = styled.main`
   font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu;
   margin-top: 10rem;
+`
+
+const Title = styled.h6`
+  font-size: 2.4rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
 `

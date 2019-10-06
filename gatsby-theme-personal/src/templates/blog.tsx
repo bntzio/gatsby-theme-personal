@@ -31,7 +31,7 @@ export default ({
   return (
     <Layout.blog>
       <main>
-        <Posts.all posts={parsed} />
+        <Posts posts={parsed} />
       </main>
     </Layout.blog>
   )
