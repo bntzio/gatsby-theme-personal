@@ -4,7 +4,8 @@ import { graphql, useStaticQuery } from 'gatsby'
 import Layout from './../components/Layout'
 import About from './../components/About'
 import Navbar from './../components/Navbar'
-import { LatestPosts } from './../components/Posts'
+import Posts from './../components/Posts'
+import parsePostData from './../utils/parsePostData'
 
 interface Post {
   id: string
@@ -12,12 +13,6 @@ interface Post {
     title: string
     slug: string
   }
-}
-
-interface ParsedPost {
-  id: string
-  title: string
-  slug: string
 }
 
 export default () => {
@@ -37,21 +32,13 @@ export default () => {
 
   const posts: Post[] = data.allMdx.nodes
 
-  const parsed: ParsedPost[] = posts.map(post => {
-    const parsed = {
-      ...post,
-      title: post.frontmatter.title,
-      slug: post.frontmatter.slug
-    }
-    delete parsed.frontmatter
-    return parsed
-  })
+  const parsed = parsePostData(posts)
 
   return (
     <Layout.home>
       <About />
       <Navbar />
-      <LatestPosts posts={parsed} />
+      <Posts.latest posts={parsed} />
     </Layout.home>
   )
 }

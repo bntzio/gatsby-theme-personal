@@ -1,2 +1,8 @@
 /* eslint-disable import/prefer-default-export */
-export { default as LatestPosts } from './Posts.Latest'
+import LatestPosts from './Posts.Latest'
+import AllPosts from './Posts.All'
+
+export default {
+  latest: LatestPosts,
+  all: AllPosts
+}

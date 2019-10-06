@@ -2,8 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 
 import Logo from './../Logo'
-import Moon from './../Icon/Icon.Moon'
-import Link from './../Icon/Icon.Link'
+import { Moon, Link } from './../Icon'
 
 export default () => (
   <Header>

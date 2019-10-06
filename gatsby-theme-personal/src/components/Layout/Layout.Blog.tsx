@@ -28,4 +28,5 @@ const Layout = styled.div`
 
 const Main = styled.main`
   font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu;
+  margin-top: 10rem;
 `

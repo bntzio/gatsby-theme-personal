@@ -17,6 +17,11 @@ exports.createPages = async ({ actions, graphql, reporter }: any, options: Optio
     component: require.resolve('./../../src/templates/home.tsx')
   })
 
+  actions.createPage({
+    path: '/blog',
+    component: require.resolve('./../../src/templates/blog.tsx')
+  })
+
   const result = await graphql(`
     query {
       allMdx(sort: { fields: [frontmatter___published_at], order: DESC }) {
